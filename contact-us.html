@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Furniture App</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome for Social Media Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Global Styling */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f9fa;
+        }
+
+        /* Navbar Styling */
+        .navbar {
+            background-color: #343a40;
+            animation: slideIn 1s ease-out;
+        }
+
+        .navbar-brand {
+            font-size: 1.75rem;
+            font-weight: bold;
+            color: #ffb700 !important;
+        }
+
+        .navbar-nav .nav-link {
+            font-size: 1.1rem;
+            color: #ffffff !important;
+            transition: color 0.3s ease;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #ffb700 !important;
+        }
+
+        /* Slide-in animation for Navbar */
+        @keyframes slideIn {
+            from {
+                transform: translateY(-100%);
+            }
+            to {
+                transform: translateY(0);
+            }
+        }
+
+        /* Contact Us Banner Styling */
+        .contact-banner {
+            height: 400px;
+            background-color: #333;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 2.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        /* Embedding Google Maps Styling */
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        /* Fade-in animation for Contact Banner */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Contact Us Section Styling */
+        .section {
+            padding: 50px 0;
+            animation: fadeInUp 1.5s ease-out;
+        }
+
+        .contact-info {
+            background-color: lavender;
+            padding: 30px;
+            border-radius: 10px;
+        }
+
+        .contact-info h2, .contact-info h3, .contact-info p, .contact-info ul {
+            color: #000000;
+            margin-bottom: 20px;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        /* Fade In Up animation for content */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Social Media Icons Styling */
+        .social-icons {
+            margin-top: 20px;
+            animation: bounce 2s infinite;
+        }
+
+        .social-icons a {
+            color: #ffffff;
+            margin: 0 15px;
+            font-size: 1.5rem;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            color: #ffb700;
+            transform: scale(1.2);
+        }
+
+        /* Bounce effect for social icons */
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-10px);
+            }
+            60% {
+                transform: translateY(-5px);
+            }
+        }
+
+        /* Footer Styling */
+        footer {
+            background-color: #343a40;
+            color: #fff;
+            padding: 20px 0;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 1rem;
+        }
+
+        /* Enquiry Form Styling */
+        .enquiry-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding: 40px;
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .enquiry-section img {
+            max-width: 300px; /* Adjusted size */
+            width: 100%; /* Ensures responsiveness */
+            height: auto; /* Maintains aspect ratio */
+            border-radius: 10px;
+            margin-right: 20px;
+        }
+
+        .enquiry-form {
+            flex: 1;
+        }
+
+        .enquiry-form h3 {
+            margin-bottom: 20px;
+        }
+
+        .enquiry-form input,
+        .enquiry-form textarea {
+            width: 100%;
+            margin-bottom: 15px;
+            padding: 10px;
+            border: 1px solid #ced4da;
+            border-radius: 5px;
+        }
+
+        .enquiry-form button {
+            background-color: #ffb700;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .enquiry-form button:hover {
+            background-color: #ff9800;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .contact-banner {
+                height: 250px;
+                font-size: 1.8rem;
+            }
+
+            .contact-banner h1 {
+                font-size: 1.8rem;
+            }
+
+            .enquiry-section {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .enquiry-section img {
+                margin-bottom: 20px;
+                max-width: 80%; /* Adjust the size for mobile */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">Virtual Furniture Preview-Contact Us</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about-us.html">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="furniture-page.html">Virtual House Preview</a></li>
+                    <li class="nav-item"><a class="nav-link" href="layouts.html">Virtual House layouts</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contact Us Map -->
+    <div class="contact-banner">
+        <!-- Embedding Google Maps for MMCOE College location -->
+        <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3783.777046336664!2d73.84945621477342!3d18.457798187440742!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2eb0a847ef70d%3A0x8f95f30ba760d6a7!2sMMCOE%20-%20Marathwada%20Mitramandal's%20College%20of%20Engineering!5e0!3m2!1sen!2sin!4v1696061234567" 
+            allowfullscreen="" loading="lazy"></iframe>
+    </div>
+
+    <!-- Contact Us Content -->
+    <section class="section">
+        <div class="container contact-info">
+            <h2>Get in Touch</h2>
+            <p>If you have any questions or feedback, feel free to reach out to us. We’re here to help you have the best experience possible.</p>
+
+            <h3>Contact Information</h3>
+            <ul>
+                <li><strong>Email:</strong> support@furnitureapp.com</li>
+                <li><strong>Phone:</strong> +123 456 7890</li>
+                <li><strong>Address:</strong> 1234 Elm St, Springfield, IL, 62704</li>
+            </ul>
+
+            <h3>Follow Us</h3>
+            <p>Stay connected with us through social media for updates and offers.</p>
+        </div>
+    </section>
+
+   
+    <!-- Footer with Social Media Icons -->
+    <footer class="bg-dark text-center text-white py-3">
+        <p style="color:#f8f9fa;">&copy; 2024 Furniture App. All Rights Reserved. </p>
+        <div class="social-icons">
+            <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+            <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        // Check if the URL has a success parameter
+        if (window.location.search.includes("success=1")) {
+            // Show an alert or add a success message to the page
+            alert("Enquiry submitted successfully!");
+        
+            // Alternatively, you could add a message directly to the page like this:
+            const successMessage = document.createElement('div');
+            successMessage.className = 'alert alert-success mt-3';
+            successMessage.innerText = 'Thank you! Your enquiry has been submitted successfully.';
+            document.querySelector('.enquiry-section').prepend(successMessage);
+        }
+        </script>
+        
+</body>
+</html>

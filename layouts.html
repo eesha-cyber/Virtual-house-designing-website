@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virtual House Layouts - Furniture App</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f9fa;
+        }
+
+        .navbar {
+            background-color: #343a40;
+        }
+
+        .navbar-brand {
+            font-size: 1.75rem;
+            font-weight: bold;
+            color: #ffb700 !important;
+        }
+
+        .navbar-nav .nav-link {
+            font-size: 1.1rem;
+            color: #ffffff !important;
+            transition: color 0.3s ease;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #ffb700 !important;
+        }
+
+        .about-banner {
+            height: 150px;
+            background: url('images/virtual-house-banner.webp') no-repeat center center/cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 2.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+            position: relative;
+        }
+
+        .about-banner::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+
+        .about-banner h1 {
+            position: relative;
+            z-index: 1;
+            opacity: 0; /* Start invisible for animation */
+            animation: fadeIn 1.5s forwards; /* Trigger animation */
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .layout-section {
+            padding: 50px 0;
+        }
+
+        .lavender-box {
+            background-color: lavender;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .lavender-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .house-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+
+        .house-image:hover {
+            transform: scale(1.05);
+        }
+
+        .select-layout-btn {
+            margin-top: 15px;
+            background-color: #ffb700;
+            border: none;
+            color: #fff;
+            padding: 10px 20px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .select-layout-btn:hover {
+            background-color: #e5a200;
+            transform: scale(1.05);
+        }
+
+        footer {
+            background-color: #343a40;
+            color: #fff;
+            padding: 20px 0;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 1rem;
+        }
+
+        .social-icons {
+            margin-top: 10px;
+        }
+
+        .social-icons a {
+            color: #ffffff;
+            margin: 0 10px;
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+
+        .social-icons a:hover {
+            color: #ffb700;
+        }
+
+        .amenities-list {
+            margin-top: 10px;
+        }
+
+        /* Keyframe animations for the layout section */
+        @keyframes fadeInLayout {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .layout-row {
+            animation: fadeInLayout 0.5s ease forwards;
+            opacity: 0; /* Start invisible to trigger animation */
+            animation-fill-mode: forwards;
+        }
+    </style>
+    <script>
+        function selectLayout(imagePath) {
+            localStorage.setItem('selectedLayout', imagePath);
+            window.location.href = 'furniture-page.html';
+        }
+    </script>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">Virtual Furniture Preview - House Layouts</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about-us.html">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact-us.html">Contact Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="furniture-page.html">Virtual House Preview</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="about-banner text-center">
+        <h1>Virtual House Layouts</h1>
+    </div>
+    
+    <section class="layout-section">
+        <div class="container">
+            <!-- House Layout 1 -->
+            <div class="row mb-4 layout-row">
+                <div class="col-md-6">
+                    <img src="images/layout1.webp" alt="House Layout 1" class="house-image">
+                </div>
+                <div class="col-md-6">
+                    <div class="lavender-box">
+                        <h4>Modern Minimalist</h4>
+                        <p>This layout features an open concept living area with sleek furniture and large windows that bring in natural light. Ideal for those who appreciate simplicity and elegance.</p>
+                        <h5>Amenities:</h5>
+                        <ul class="amenities-list">
+                            <li>Open Floor Plan</li>
+                            <li>Smart Home Features</li>
+                            <li>Outdoor Deck</li>
+                        </ul>
+                        <button class="select-layout-btn" onclick="selectLayout('images/layout1.webp')">Select Layout</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- House Layout 2 -->
+            <div class="row mb-4 layout-row">
+                <div class="col-md-6">
+                    <img src="images/layout2.jpg" alt="House Layout 2" class="house-image">
+                </div>
+                <div class="col-md-6">
+                    <div class="lavender-box">
+                        <h4>Rustic Country</h4>
+                        <p>A warm and cozy layout that emphasizes natural elements, exposed wooden beams, and an inviting atmosphere.</p>
+                        <h5>Amenities:</h5>
+                        <ul class="amenities-list">
+                            <li>Fireplace</li>
+                            <li>Farmhouse Kitchen</li>
+                            <li>Large Porch</li>
+                        </ul>
+                        <button class="select-layout-btn" onclick="selectLayout('images/layout2.jpg')">Select Layout</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- House Layout 3 -->
+            <div class="row mb-4 layout-row">
+                <div class="col-md-6">
+                    <img src="images/layout3.avif" alt="House Layout 3" class="house-image">
+                </div>
+                <div class="col-md-6">
+                    <div class="lavender-box">
+                        <h4>Industrial Loft</h4>
+                        <p>Featuring exposed brick, metal fixtures, and open space, this layout is ideal for those who like a rugged and modern look.</p>
+                        <h5>Amenities:</h5>
+                        <ul class="amenities-list">
+                            <li>High Ceilings</li>
+                            <li>Exposed Ductwork</li>
+                            <li>Private Balcony</li>
+                        </ul>
+                        <button class="select-layout-btn" onclick="selectLayout('images/layout3.avif')">Select Layout</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- House Layout 4 -->
+            <div class="row mb-4 layout-row">
+                <div class="col-md-6">
+                    <img src="images/layout4.jpg" alt="House Layout 4" class="house-image">
+                </div>
+                <div class="col-md-6">
+                    <div class="lavender-box">
+                        <h4>Traditional Elegance</h4>
+                        <p>This layout incorporates classic design elements with rich fabrics and intricate details, creating a timeless atmosphere.</p>
+                        <h5>Amenities:</h5>
+                        <ul class="amenities-list">
+                            <li>Formal Dining Room</li>
+                            <li>Library/Office</li>
+                            <li>Landscaped Garden</li>
+                        </ul>
+                        <button class="select-layout-btn" onclick="selectLayout('images/layout4.jpg')">Select Layout</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- House Layout 5 -->
+            <div class="row mb-4 layout-row">
+                <div class="col-md-6">
+                    <img src="images/layout5.jpg" alt="House Layout 5" class="house-image">
+                </div>
+                <div class="col-md-6">
+                    <div class="lavender-box">
+                        <h4>Contemporary Chic</h4>
+                        <p>A stylish layout that mixes modern designs with functional spaces, perfect for those who enjoy a lively lifestyle.</p>
+                        <h5>Amenities:</h5>
+                        <ul class="amenities-list">
+                            <li>Smart Lighting</li>
+                            <li>Integrated Sound System</li>
+                            <li>Outdoor Living Space</li>
+                        </ul>
+                        <button class="select-layout-btn" onclick="selectLayout('images/layout5.jpg')">Select Layout</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- House Layout 6 -->
+            <div class="row mb-4 layout-row">
+                <div class="col-md-6">
+                    <img src="images/layout6.webp" alt="House Layout 6" class="house-image">
+                </div>
+                <div class="col-md-6">
+                    <div class="lavender-box">
+                        <h4>Luxury Modern</h4>
+                        <p>This layout combines luxury and modern aesthetics with spacious rooms, elegant furnishings, and breathtaking views.</p>
+                        <h5>Amenities:</h5>
+                        <ul class="amenities-list">
+                            <li>Infinity Pool</li>
+                            <li>Home Theater</li>
+                            <li>Gym and Spa</li>
+                        </ul>
+                        <button class="select-layout-btn" onclick="selectLayout('images/layout6.webp')">Select Layout</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer>
+        <div class="container text-center">
+            <p>&copy; 2024 Virtual House Layouts. All rights reserved.</p>
+            <div class="social-icons">
+                <a href="#" class="fab fa-facebook"></a>
+                <a href="#" class="fab fa-twitter"></a>
+                <a href="#" class="fab fa-instagram"></a>
+                <a href="#" class="fab fa-linkedin"></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
